@@ -1,0 +1,150 @@
+db={
+  "PlayerTournament": [
+    {
+      "_id": 1,
+      "Name": "John Aims",
+      "Gender": "M",
+      "DoB": ISODate("1990-01-01T00:00:00Z"),
+      "Nationality": "USA",
+      "Hand": "R",
+      "YearTurnedPro": 2010,
+      "Tournament": [
+        {
+          "TournamentYear": 2016,
+          "TournamentCode": "GS1",
+          "Position": 8,
+          "PrizeMoney": 125000,
+          "RankingPoints": 250
+        },
+        {
+          "TournamentYear": 2019,
+          "TournamentCode": "GS4",
+          "Position": 2,
+          "PrizeMoney": 625000,
+          "RankingPoints": 1000
+        },
+        {
+          "TournamentYear": 2021,
+          "TournamentCode": "GS3",
+          "Position": 4,
+          "PrizeMoney": 312500,
+          "RankingPoints": 500
+        }
+      ]
+    },
+    {
+      "_id": 2,
+      "Name": "George Brown",
+      "Gender": "M",
+      "DoB": ISODate("1997-03-04T00:00:00Z"),
+      "Nationality": "GB",
+      "Hand": "L",
+      "YearTurnedPro": 2013,
+      "Tournament": [
+        {
+          "TournamentYear": 2016,
+          "TournamentCode": "GS1",
+          "Position": 4,
+          "PrizeMoney": 250000,
+          "RankingPoints": 500
+        },
+        {
+          "TournamentYear": 2019,
+          "TournamentCode": "GS3",
+          "Position": 2,
+          "PrizeMoney": 625000,
+          "RankingPoints": 1000
+        }
+      ]
+    },
+    {
+      "_id": 3,
+      "Name": "Kate Upson",
+      "Gender": "F",
+      "DoB": ISODate("1999-12-07T00:00:00Z"),
+      "Nationality": "GB",
+      "Hand": "L",
+      "YearTurnedPro": 2013,
+      "Tournament": [
+        {
+          "TournamentYear": 2016,
+          "TournamentCode": "GS1",
+          "Position": 1,
+          "PrizeMoney": 1000000,
+          "RankingPoints": 2000
+        },
+        {
+          "TournamentYear": 2019,
+          "TournamentCode": "GS1",
+          "Position": 4,
+          "PrizeMoney": 250000,
+          "RankingPoints": 500
+        },
+        {
+          "TournamentYear": 2020,
+          "TournamentCode": "GS4",
+          "Position": 2,
+          "PrizeMoney": 625000,
+          "RankingPoints": 1000
+        },
+        {
+          "TournamentYear": 2017,
+          "TournamentCode": "GS2",
+          "Position": 2,
+          "PrizeMoney": 625000,
+          "RankingPoints": 1000
+        }
+      ]
+    },
+    {
+      "_id": 4,
+      "Name": "Mary Bones",
+      "Gender": "F",
+      "DoB": ISODate("1998-10-04T00:00:00Z"),
+      "Nationality": "AUSTRALIA",
+      "Hand": "L",
+      "YearTurnedPro": 2015,
+      "Tournament": [
+        {
+          "TournamentYear": 2018,
+          "TournamentCode": "GS3",
+          "Position": 1,
+          "PrizeMoney": 125000,
+          "RankingPoints": 2000
+        },
+        {
+          "TournamentYear": 2019,
+          "TournamentCode": "GS2",
+          "Position": 2,
+          "PrizeMoney": 625000,
+          "RankingPoints": 1000
+        }
+      ]
+    },
+    {
+      "_id": 5,
+      "Name": "Yuri Roza",
+      "Gender": "M",
+      "DoB": ISODate("2000-05-11T00:00:00Z"),
+      "Nationality": "BELARUS",
+      "Hand": "R",
+      "YearTurnedPro": 2018,
+      "Tournament": [
+        {
+          "TournamentYear": 2020,
+          "TournamentCode": "GS4",
+          "Position": 4,
+          "PrizeMoney": 250000,
+          "RankingPoints": 500
+        },
+        {
+          "TournamentYear": 2018,
+          "TournamentCode": "GS2",
+          "Position": 4,
+          "PrizeMoney": 312500,
+          "RankingPoints": 500
+        }
+      ]
+    }
+  ]
+}
