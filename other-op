@@ -1,0 +1,69 @@
+1. $match:
+    Filters documents based on specified conditions.
+    Example: Find male players from the USA.
+
+    db.PlayerTournament.aggregate([
+      { $match: { Gender: "M", Nationality: "USA" } }
+    ]);
+
+2. $group:
+    Groups documents by a specified expression and applies accumulator expressions.
+    Example: Calculate total prize money won by each player.
+
+    db.PlayerTournament.aggregate([
+    {
+      $group: {
+        _id: "$Name",
+        TotalPrizeMoney: { $sum: { $sum: "$Tournament.PrizeMoney" } }
+      }
+    }
+    ]);
+
+3. $sort:
+    Sorts documents by specified fields.
+    Example: Sort players by their total prize money in descending order.
+
+    db.PlayerTournament.aggregate([
+      {
+        $group: {
+          _id: "$Name",
+          TotalPrizeMoney: { $sum: { $sum: "$Tournament.PrizeMoney" } }
+        }
+      },
+      { $sort: { TotalPrizeMoney: -1 } } // -1 for descending, 1 for ascending
+    ]);
+
+4. $limit:
+    Limits the number of documents passed to the next stage.
+    Example: Get the top 3 players by total prize money.
+
+    db.PlayerTournament.aggregate([
+      {
+        $group: {
+          _id: "$Name",
+          TotalPrizeMoney: { $sum: { $sum: "$Tournament.PrizeMoney" } }
+        }
+      },
+      { $sort: { TotalPrizeMoney: -1 } },
+      { $limit: 3 }
+    ]);
+
+5. $project (additional example):
+    Reshapes documents by including, excluding, or transforming fields.
+    Example: Include only player's name and their total prize money.
+
+    db.PlayerTournament.aggregate([
+      {
+        $group: {
+          _id: "$Name",
+          TotalPrizeMoney: { $sum: { $sum: "$Tournament.PrizeMoney" } }
+        }
+      },
+      {
+        $project: {
+          _id: 0,
+          Name: "$_id",
+          TotalPrizeMoney: 1
+        }
+      }
+    ]);
