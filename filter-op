@@ -1,0 +1,82 @@
+db.PlayerTournament.aggregate([
+  // Project to include only the players who won more than 500000 after the year 2020
+  {
+    $project: {
+      Name: 1,
+      Gender: 1,
+      HighPrizeMoneyTournaments: {
+        $filter: {
+          input: "$Tournament",
+          as: "tournament",
+          cond: {
+            $and: [
+              {
+                $gt: [
+                  "$$tournament.TournamentYear",
+                  2016
+                ]
+              },
+              {
+                $gt: [
+                  "$$tournament.PrizeMoney",
+                  500000
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  // Match documents where HighPrizeMoneyTournaments array is not empty
+  {
+    $match: {
+      HighPrizeMoneyTournaments: {
+        $ne: []
+      }
+    }
+  },
+  {
+    $unwind: "$HighPrizeMoneyTournaments"
+  },
+  // Project to include only the player's name
+  {
+    $project: {
+      _id: 0,
+      Name: 1,
+      PrizeMoney: "$HighPrizeMoneyTournaments.PrizeMoney",
+      Gender: 1
+    }
+  }
+])
+
+
+########################################### RESULT ###############################################
+
+[
+  {
+    "Gender": "M",
+    "Name": "John Aims",
+    "PrizeMoney": 625000
+  },
+  {
+    "Gender": "M",
+    "Name": "George Brown",
+    "PrizeMoney": 625000
+  },
+  {
+    "Gender": "F",
+    "Name": "Kate Upson",
+    "PrizeMoney": 625000
+  },
+  {
+    "Gender": "F",
+    "Name": "Kate Upson",
+    "PrizeMoney": 625000
+  },
+  {
+    "Gender": "F",
+    "Name": "Mary Bones",
+    "PrizeMoney": 625000
+  }
+]
